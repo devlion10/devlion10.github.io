@@ -17,7 +17,7 @@ minimal_mistakes_skin    : "dark"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "MyDevBlog"
+title                    : "DevLion`s Dev Blog"
 future                   : "true"
 published                : "true"
 title_separator          : "-"
@@ -107,10 +107,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Inhyo`s Dev Blog"
+  name             : "DevLion"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am The **Developer**."
-  location         : "Korea"
+  location         : "Find Me"
   email            :
   links:
     - label: "Email"
