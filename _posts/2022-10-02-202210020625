@@ -8,6 +8,7 @@ title:  "Spring프로퍼티를 프론트단(html,jsp)에서 사용"
 **사설인증서 생성법, 웹투비 ssl 적용용(먼저 CA루트인증서 생성 후 사설인증서 생성)**
 
 기존의 프로퍼티 사용(전자정부프레임워크의 자원 사용의 예)
+
 ```java
 String defPath = EgovProperties.getProperty("Globals.atchPath") + File.separato+ cal.get(Calendar.YEAR) + File.separator+ (cal.get(Calendar.MONTH) + 1) + File.separator+ AtchEnum.PRMISN + File.separator + infoVO.getMappingIdRewrite();
 ```
