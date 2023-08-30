@@ -1,0 +1,38 @@
+---
+layout: post
+title:  "사설 TEST용 SSL 인증서 생성"
+---
+
+#웹서버(웹투비)에 실제 인증서를 구입하기 전 SSL적용 시 문제점 TEST용으로 사설 인증서를 만들어야 할 상황
+
+**사설인증서 생성법, 웹투비 ssl 적용용(먼저 CA루트인증서 생성 후 사설인증서 생성)**
+
+CA루트인증서
+
+    -키쌍생성(개인,공개)
+    openssl genrsa -aes256 -out rootca.key 2048 
+    -csr생성
+    openssl req -new -key rootca.key -out rootca.csr
+    -crt생성
+    openssl x509 -req -days 3650 -set_serial 1 -in rootca.csr -signkey rootca.key -out rootca.crt
+    -crt->pem변환
+    openssl x509 -in  rootca.crt -out rootpem.pem -outform PEM
+
+    -pem내용확인(vi로는 안됨)
+    openssl x509 -text -in rootpem.pem 
+
+
+사설인증서
+
+    openssl genrsa -aes256 -out 203.236.216.231.key 2048
+    
+    openssl req -new -key 203.236.216.231.key -out 203.236.216.231.csr
+    
+    -crt생성
+    
+    openssl x509 -req -days 3650 -extensions v3_user -in 203.236.216.231.csr -CA rootca.crt  -CAcreateserial -CAkey rootca.key -out 203.236.216.231.crt
+
+    openssl x509 -text -in 203.236.216.231.crt 
+
+    openssl x509 -in  203.236.216.231.crt -out 203.236.216.231.pem -outform PEM
+    
